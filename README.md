@@ -8,9 +8,9 @@ Requirements
 
 Usage
 -----
-
+###
   $ mkdir PROJECTNAME
-	$ PROJECTNAME=yourprojectname vagrant up
+  $ PROJECTNAME=yourprojectname vagrant up
 
 ### Connecting
 	$ vagrant ssh
