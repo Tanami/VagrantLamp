@@ -1,6 +1,7 @@
 #!/bin/bash
 PROJECT=$1;
 apache_vhost_file="/etc/apache2/sites-available/$PROJECT.conf"
+apache_server_name="www.$PROJECT.com"
 
 main() {
     echo Provisioning vagrant instance
@@ -22,8 +23,7 @@ apache() {
 
 	sudo cat << EOF > ${apache_vhost_file}
 <VirtualHost *:80>
-        ServerName www.adamhalldev.com
-        ServerAlias adamhalldev.com
+        ServerName ${apache_server_name}
 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/$PROJECT
