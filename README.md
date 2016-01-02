@@ -14,9 +14,7 @@ Usage
   	$ git clone https://github.com/AdamJHall/VagrantLamp.git .
   	$ PROJECT=yourprojectname vagrant up
 
-You may also need to run to update your hosts file
-	$ vagrant hostmanager
-
+You may also need to run "$ vagrant hostmanager" to update your hosts file
 
 ### Connecting
 	$ vagrant ssh
