@@ -10,9 +10,11 @@ Usage
 -----
 ### Create Project
   	$ mkdir PROJECTNAME && cd PROJECTNAME
+  	$ git clone https://github.com/AdamJHall/VagrantLamp.git .
   	$ PROJECT=yourprojectname vagrant up
 
 ### Connecting
 	$ vagrant ssh
 
-The server should then be available at yourprojectname.com
+A folder named yourprojectname will be created, add any php code to it and it will be available at 
+yourprojectname.com
