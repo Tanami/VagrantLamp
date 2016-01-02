@@ -54,10 +54,18 @@ php(){
 
 mysql(){
     echo Installing Mysql
-	echo "mysql-server mysql-server/root_password password root" | debconf-set-selections > /dev/null
-	echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections > /dev/null
+	echo "mysql-server mysql-server/root_password password root" | debconf-set-selections 
+	echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
 	sudo apt-get -y install mysql-client mysql-server > /dev/null
 
+    echo "Updating mysql configs in /etc/mysql/my.cnf."
+    sudo sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+    echo "Updated mysql bind address in /etc/mysql/my.cnf to 0.0.0.0 to allow external connections."
+
+    echo "Assigning mysql user root access on %."
+    sudo mysql -u root --password=root --execute "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' with GRANT OPTION; FLUSH PRIVILEGES;" 
+    echo "Assigned mysql root access on all hosts."
+    
 	sudo service mysql restart > /dev/null
 }
 main
