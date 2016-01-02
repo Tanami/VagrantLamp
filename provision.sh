@@ -19,7 +19,7 @@ update() {
 
 apache() {
     echo Installing and Setting up Apache2
-	sudo apt-get -y install apache2
+	sudo apt-get -y install apache2 > /dev/null
 
 	sudo cat << EOF > ${apache_vhost_file}
 <VirtualHost *:80>
@@ -40,25 +40,25 @@ apache() {
 </VirtualHost>
 EOF
 
-	sudo a2dissite 000-default
-	sudo a2ensite $PROJECT
-	sudo a2enmod rewrite
-	sudo service apache2 restart
+	sudo a2dissite 000-default > /dev/null
+	sudo a2ensite $PROJECT > /dev/null
+	sudo a2enmod rewrite > /dev/null
+	sudo service apache2 restart > /dev/null
 }
 
 php(){
     echo Installing PHP
-	sudo apt-get -y install php5 php5-curl php5-mysql
+	sudo apt-get -y install php5 php5-curl php5-mysql > /dev/null
 }
 
 
 mysql(){
     echo Installing Mysql
-	echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
-	echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
-	sudo apt-get -y install mysql-client mysql-server
+	echo "mysql-server mysql-server/root_password password root" | debconf-set-selections > /dev/null
+	echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections > /dev/null
+	sudo apt-get -y install mysql-client mysql-server > /dev/null
 
-	sudo service mysql restart
+	sudo service mysql restart > /dev/null
 }
 main
 exit 0
