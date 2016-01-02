@@ -9,7 +9,7 @@ Requirements
 Usage
 -----
 ### Create Project
-  	$ mkdir PROJECTNAME
+  	$ mkdir PROJECTNAME && cd PROJECTNAME
   	$ PROJECT=yourprojectname vagrant up
 
 ### Connecting
