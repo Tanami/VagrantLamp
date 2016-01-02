@@ -10,9 +10,9 @@ Usage
 -----
 ### Create Project
   	$ mkdir PROJECTNAME
-  	$ PROJECTNAME=yourprojectname vagrant up
+  	$ PROJECT=yourprojectname vagrant up
 
 ### Connecting
 	$ vagrant ssh
-	
-	
+
+The server should then be available at yourprojectname.com
