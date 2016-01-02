@@ -5,6 +5,7 @@ Requirements
 ------------
 * VirtualBox <http://www.virtualbox.com>
 * Vagrant <http://www.vagrantup.com>
+* Vagrant plugin - Hostmanager <https://github.com/smdahlen/vagrant-hostmanager>
 
 Usage
 -----
@@ -12,6 +13,10 @@ Usage
   	$ mkdir PROJECTNAME && cd PROJECTNAME
   	$ git clone https://github.com/AdamJHall/VagrantLamp.git .
   	$ PROJECT=yourprojectname vagrant up
+
+You may also need to run to update your hosts file
+	$ vagrant hostmanager
+
 
 ### Connecting
 	$ vagrant ssh
