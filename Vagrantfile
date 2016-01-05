@@ -11,8 +11,10 @@ Vagrant.configure(2) do |config|
 	config.vm.network :private_network, ip: '192.168.42.42'
 
     #Synced Folders and Provisioning
-    if ENV.has_key?("PROJECT") 
-        config.vm.hostname = ENV["PROJECT"] + ".com"
+    if ENV.has_key?("PROJECT")
+        hostname= ENV["PROJECT"] + ".com"
+        config.vm.hostname = "www." + #{hostname}"
+        config.hostmanager.aliases="#{hostname}"
         config.vm.synced_folder "./" + ENV["PROJECT"] + "/", "/var/www/" + ENV["PROJECT"] + "/", create: true, group: "www-data", owner: "www-data"
 
         config.vm.provision "shell" do |s|
